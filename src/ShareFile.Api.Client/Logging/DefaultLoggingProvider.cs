@@ -22,16 +22,30 @@ namespace ShareFile.Api.Client.Logging
         public void Trace(string message)
         {
             System.Diagnostics.Debug.WriteLine("TRACE: {0}", message);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Trace;
+            args.message = message;
+            OnTraceCalled(args);
         }
 
         public void Trace(Exception exception, string message)
         {
             System.Diagnostics.Debug.WriteLine("TRACE: {0} : {1}", message, exception);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Trace;
+            args.message = message;
+            OnTraceCalled(args);
+        }
+
+        protected virtual void OnTraceCalled(LogEventArgs e)
+        {
+            EventHandler<LogEventArgs> handler = TraceCalled;
+            handler(this, e);
         }
 
         public void Debug(string message)
         {
-            System.Diagnostics.Debug.WriteLine(message); 
+            System.Diagnostics.Debug.WriteLine(message);
         }
 
         public void Debug(Exception exception, string message)
@@ -78,5 +92,12 @@ namespace ShareFile.Api.Client.Logging
         {
             System.Diagnostics.Debug.WriteLine("FATAL: {0} : {1}", message, exception);
         }
+
+        public event EventHandler<LogEventArgs> TraceCalled;
+        public event EventHandler<LogEventArgs> DebugCalled;
+        public event EventHandler<LogEventArgs> InfoCalled;
+        public event EventHandler<LogEventArgs> WarnCalled;
+        public event EventHandler<LogEventArgs> ErrorCalled;
+        public event EventHandler<LogEventArgs> FatalCalled;
     }
 }
