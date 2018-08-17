@@ -12,6 +12,7 @@
     <NoWarn>1701;1702;1705;1591;1571;1572;1573;1570</NoWarn>
     <PackageProjectUrl>https://github.com/Dan-Avel/ShareFile-NET.git</PackageProjectUrl>
     <RepositoryUrl>git@github.com:Dan-Avel/ShareFile-NET.git</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/Dan-Avel/ShareFile-NET.git</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>

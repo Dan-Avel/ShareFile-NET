@@ -46,51 +46,121 @@ namespace ShareFile.Api.Client.Logging
         public void Debug(string message)
         {
             System.Diagnostics.Debug.WriteLine(message);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Debug;
+            args.message = message;
+            OnDebugCalled(args);
         }
 
         public void Debug(Exception exception, string message)
         {
             System.Diagnostics.Debug.WriteLine("{0} : {1}", message, exception);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Debug;
+            args.message = message;
+            OnDebugCalled(args);
+        }
+
+        protected virtual void OnDebugCalled(LogEventArgs e)
+        {
+            EventHandler<LogEventArgs> handler = DebugCalled;
+            handler(this, e);
         }
 
         public void Info(string message)
         {
             System.Diagnostics.Debug.WriteLine("INFO: {0}", message);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Info;
+            args.message = message;
+            OnInfoCalled(args);
         }
 
         public void Info(Exception exception, string message)
         {
             System.Diagnostics.Debug.WriteLine("INFO: {0} : {1}", message, exception);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Info;
+            args.message = message;
+            OnInfoCalled(args);
+        }
+
+        protected virtual void OnInfoCalled(LogEventArgs e)
+        {
+            EventHandler<LogEventArgs> handler = InfoCalled;
+            handler(this, e);
         }
 
         public void Warn(string message)
         {
             System.Diagnostics.Debug.WriteLine("WARN: {0}", message);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Warn;
+            args.message = message;
+            OnWarnCalled(args);
         }
 
         public void Warn(Exception exception, string message)
         {
             System.Diagnostics.Debug.WriteLine("TRACE: {0} : {1}", message, exception);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Warn;
+            args.message = message;
+            OnWarnCalled(args);
+        }
+
+        protected virtual void OnWarnCalled(LogEventArgs e)
+        {
+            EventHandler<LogEventArgs> handler = WarnCalled;
+            handler(this, e);
         }
 
         public void Error(string message)
         {
             System.Diagnostics.Debug.WriteLine("ERROR: {0}", message);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Error;
+            args.message = message;
+            OnErrorCalled(args);
         }
 
         public void Error(Exception exception, string message)
         {
             System.Diagnostics.Debug.WriteLine("ERROR: {0} : {1}", message, exception);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Error;
+            args.message = message;
+            OnErrorCalled(args);
+        }
+
+        protected virtual void OnErrorCalled(LogEventArgs e)
+        {
+            EventHandler<LogEventArgs> handler = ErrorCalled;
+            handler(this, e);
         }
 
         public void Fatal(string message)
         {
             System.Diagnostics.Debug.WriteLine("FATAL: {0}", message);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Fatal;
+            args.message = message;
+            OnFatalCalled(args);
         }
 
         public void Fatal(Exception exception, string message)
         {
             System.Diagnostics.Debug.WriteLine("FATAL: {0} : {1}", message, exception);
+            LogEventArgs args = new LogEventArgs();
+            args.logType = LogType.Fatal;
+            args.message = message;
+            OnFatalCalled(args);
+        }
+
+        protected virtual void OnFatalCalled(LogEventArgs e)
+        {
+            EventHandler<LogEventArgs> handler = FatalCalled;
+            handler(this, e);
         }
 
         public event EventHandler<LogEventArgs> TraceCalled;
