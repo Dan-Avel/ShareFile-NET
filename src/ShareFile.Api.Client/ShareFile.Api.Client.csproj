@@ -10,6 +10,8 @@
     <PackageTags>ShareFile</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <NoWarn>1701;1702;1705;1591;1571;1572;1573;1570</NoWarn>
+    <PackageProjectUrl>https://github.com/Dan-Avel/ShareFile-NET.git</PackageProjectUrl>
+    <RepositoryUrl>git@github.com:Dan-Avel/ShareFile-NET.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Security" />
     <Reference Include="System" />
@@ -85,10 +87,10 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="FUR10N.NullContracts" Version="1.0.0-beta5">
+    <PackageReference Include="FUR10N.NullContracts" Version="1.3.4">
         <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="System.Buffers" Version="4.4.0" />
+    <PackageReference Include="System.Buffers" Version="4.5.0" />
   </ItemGroup>
 
 </Project>
