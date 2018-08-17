@@ -31,7 +31,7 @@ namespace ShareFile.Api.Client.Logging
 
         public void Debug(string message)
         {
-            System.Diagnostics.Debug.WriteLine(message);
+            System.Diagnostics.Debug.WriteLine(message); 
         }
 
         public void Debug(Exception exception, string message)
