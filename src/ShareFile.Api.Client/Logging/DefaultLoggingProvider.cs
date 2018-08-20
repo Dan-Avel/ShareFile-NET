@@ -39,11 +39,7 @@ namespace ShareFile.Api.Client.Logging
 
         protected virtual void OnTraceCalled(LogEventArgs e)
         {
-            EventHandler<LogEventArgs> handler = TraceCalled;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            TraceCalled?.Invoke(this, e);
         }
 
         public void Debug(string message)
@@ -66,11 +62,7 @@ namespace ShareFile.Api.Client.Logging
 
         protected virtual void OnDebugCalled(LogEventArgs e)
         {
-            EventHandler<LogEventArgs> handler = DebugCalled;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            DebugCalled?.Invoke(this, e);
         }
 
         public void Info(string message)
@@ -93,11 +85,7 @@ namespace ShareFile.Api.Client.Logging
 
         protected virtual void OnInfoCalled(LogEventArgs e)
         {
-            EventHandler<LogEventArgs> handler = InfoCalled;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            InfoCalled?.Invoke(this, e);
         }
 
         public void Warn(string message)
@@ -120,11 +108,7 @@ namespace ShareFile.Api.Client.Logging
 
         protected virtual void OnWarnCalled(LogEventArgs e)
         {
-            EventHandler<LogEventArgs> handler = WarnCalled;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            WarnCalled?.Invoke(this, e);
         }
 
         public void Error(string message)
@@ -147,11 +131,7 @@ namespace ShareFile.Api.Client.Logging
 
         protected virtual void OnErrorCalled(LogEventArgs e)
         {
-            EventHandler<LogEventArgs> handler = ErrorCalled;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            ErrorCalled?.Invoke(this, e);
         }
 
         public void Fatal(string message)
@@ -174,11 +154,7 @@ namespace ShareFile.Api.Client.Logging
 
         protected virtual void OnFatalCalled(LogEventArgs e)
         {
-            EventHandler<LogEventArgs> handler = FatalCalled;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            FatalCalled?.Invoke(this, e);
         }
 
         public event EventHandler<LogEventArgs> TraceCalled;
