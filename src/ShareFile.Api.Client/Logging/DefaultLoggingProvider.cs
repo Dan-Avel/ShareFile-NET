@@ -40,7 +40,10 @@ namespace ShareFile.Api.Client.Logging
         protected virtual void OnTraceCalled(LogEventArgs e)
         {
             EventHandler<LogEventArgs> handler = TraceCalled;
-            handler(this, e);
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         public void Debug(string message)
@@ -64,7 +67,10 @@ namespace ShareFile.Api.Client.Logging
         protected virtual void OnDebugCalled(LogEventArgs e)
         {
             EventHandler<LogEventArgs> handler = DebugCalled;
-            handler(this, e);
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         public void Info(string message)
@@ -88,7 +94,10 @@ namespace ShareFile.Api.Client.Logging
         protected virtual void OnInfoCalled(LogEventArgs e)
         {
             EventHandler<LogEventArgs> handler = InfoCalled;
-            handler(this, e);
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         public void Warn(string message)
@@ -112,7 +121,10 @@ namespace ShareFile.Api.Client.Logging
         protected virtual void OnWarnCalled(LogEventArgs e)
         {
             EventHandler<LogEventArgs> handler = WarnCalled;
-            handler(this, e);
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         public void Error(string message)
@@ -136,7 +148,10 @@ namespace ShareFile.Api.Client.Logging
         protected virtual void OnErrorCalled(LogEventArgs e)
         {
             EventHandler<LogEventArgs> handler = ErrorCalled;
-            handler(this, e);
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         public void Fatal(string message)
@@ -160,7 +175,10 @@ namespace ShareFile.Api.Client.Logging
         protected virtual void OnFatalCalled(LogEventArgs e)
         {
             EventHandler<LogEventArgs> handler = FatalCalled;
-            handler(this, e);
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
 
         public event EventHandler<LogEventArgs> TraceCalled;
